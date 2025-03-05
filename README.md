@@ -5,6 +5,9 @@ A single screen app that gives the user
 - The Number of the Day 
 - The Number of the Day in the Season 
 - The Season
+- The Weather 
+- Rain Chance
+- Barometric Information
 
 ## Dependencies
 
