@@ -1,4 +1,4 @@
-# Points to Note
+# Journalist's Barometer
 
 A single screen app that gives the user
 - The Day in name
