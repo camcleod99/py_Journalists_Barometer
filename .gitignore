@@ -1,0 +1,43 @@
+# Ignore node_modules (for Node.js projects)
+node_modules/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore environment files
+.env
+
+# Ignore PyCharm project files
+.idea/
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore JetBrains IDEs (PyCharm, WebStorm, IntelliJ, etc.)
+*.iml
+*.ipr
+*.iws
+out/
+
+# Ignore virtual environments
+venv/
+.env/
+.virtualenv/
+
+# Ignore compiled and cache files
+*.class
+*.jar
+*.war
+*.ear
+
