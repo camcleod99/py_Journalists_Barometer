@@ -2,15 +2,15 @@ import datetime as dt
 
 dt_now = dt.datetime.now()
 
-STRING_WINTER = "❄️️"
-STRING_SPRING = "🌲️"
-STRING_SUMMER = "☀️️"
-STRING_AUTUMN = "🍂️"
-
 def get_now():
     return dt_now
 
 def get_season():
+    STRING_WINTER = "❄️️"
+    STRING_SPRING = "🌲️"
+    STRING_SUMMER = "☀️️"
+    STRING_AUTUMN = "🍂️"
+
     dt_spring = dt.datetime(dt_now.year,3, 21)
     dt_summer = dt.datetime(dt_now.year,6, 21)
     dt_autumn = dt.datetime(dt_now.year,9, 21)

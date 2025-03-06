@@ -1,12 +1,10 @@
-import re
-import tkinter as tk
-from tkinter import Tk, Canvas, Label, PhotoImage
+from tkinter import Tk, Canvas, Label
 from tkmacosx import Button
-from turtledemo.nim import COLOR
-
-from season import *
 import pyperclip
 import calendar
+from season import *
+from api import *
+
 
 COLOR_BACKGROUND = '#B1DDC6'
 
@@ -16,6 +14,7 @@ if __name__ == '__main__':
     now = get_now()
     year_days = 366 if calendar.isleap(now.year) else 365
 
+    string_sun = "Please Wait"
     string_date = f"{now.year}-{'{:0>2}'.format(now.month)}-{'{:0>2}'.format(now.day)}"
     string_journal = f"📅️ {now.strftime("%a")} | 🌏️ {'{:0>3}'.format(now.timetuple().tm_yday)} / {year_days} | {season[2]} {season[0]} / {season[0] + season[1]}"
 
@@ -26,6 +25,10 @@ if __name__ == '__main__':
 
     def copy_journal():
         pyperclip.copy(string_journal)
+        return None
+
+    def copy_sun():
+        pyperclip.copy(string_sun)
         return None
 
     # Screen
@@ -44,13 +47,18 @@ if __name__ == '__main__':
     label_website.config(padx=5)
     label_website.grid(column=1, row=2)
 
-    # Text Fields
-    label_date = Label(text=string_date, padx=5, pady=5, width=50, background=COLOR_BACKGROUND)
-    label_date.grid(column=2, row=1)
+    label_sun = Label(text="Sunrise", padx=5, width=10)
+    label_sun.grid(column=1, row=3)
 
-    label_journal = Label(text=string_journal, padx=5, pady=5, width=50, background=COLOR_BACKGROUND)
-    label_journal.config(padx=5)
-    label_journal.grid(column=2, row=2)
+    # Text Fields
+    text_date = Label(text=string_date, padx=5, pady=5, width=50, background=COLOR_BACKGROUND)
+    text_date.grid(column=2, row=1)
+
+    text_journal = Label(text=string_journal, padx=5, pady=5, width=50, background=COLOR_BACKGROUND)
+    text_journal.grid(column=2, row=2)
+
+    text_sun = Label(text=string_sun, padx=5, pady=5, width=50, background=COLOR_BACKGROUND)
+    text_sun.grid(column=2, row=3)
 
     # Buttons
     button_find_password = Button(text="📋️", command=copy_date,borderless=1, highlightthickness=0, background="grey")
@@ -58,5 +66,12 @@ if __name__ == '__main__':
 
     button_save_email = Button(text="📋️", command=copy_journal,borderless=1, highlightthickness=0,  background="grey")
     button_save_email.grid(column=3, row=2)
+
+    button_save_email = Button(text="📋️", command=copy_sun,borderless=1, highlightthickness=0,  background="grey")
+    button_save_email.grid(column=3, row=3)
+
+    data = get_sun_times(36.7201600,4.4203400)
+    string_sun = f"🌅️ {data[0]} | 🌇️ {data[1]}"
+    text_sun.config(text=string_sun)
 
     win.mainloop()

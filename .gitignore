@@ -41,3 +41,6 @@ venv/
 *.war
 *.ear
 
+setup.json
+todo.md
+
