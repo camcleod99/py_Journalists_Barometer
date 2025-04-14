@@ -44,3 +44,4 @@ venv/
 /todo.md
 
 /setup.json
+/.env
